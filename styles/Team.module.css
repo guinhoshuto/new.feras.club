@@ -1,0 +1,18 @@
+.teamHeader{
+  background: rgb(24, 24, 27);
+  height: 50px;
+  padding: 5px;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+}
+
+.twitchIcon{
+  background: rgb(24, 24, 27) url("../public/twitch.png") no-repeat center; 
+  background-size: contain ;
+  height: 40px;
+  width:40px;
+}
+
+nav>ul>li.block{
+  display: inline-block;
+}
