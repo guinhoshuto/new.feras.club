@@ -9,26 +9,9 @@ interface FerasProps {
 }
 
 export default function Feras(props: FerasProps) {
-    // const [ferasChannels, setFerasChannels] = useState<FeraDto[]>([])
-    // const [online, setOnline] = useState([])
-
-    // useEffect(() => {
-    //     handleSetFeras(feras)
-    //     // setOnline(feras.filter((fera: FeraDto) => fera.is_live))
-    // }, [])
-
-    // function handleSetFeras(channels: any) {
-    //     setFerasChannels(channels)
-    // }
-
-    // console.log(ferasChannels)
-    // const { setFera } = useFera();
     const online = props.feras.filter(fera => fera.is_live)
     console.log('feras', props.feras )
 
-    // function handleFera(fera: FeraDto): void {
-    //     setFera(fera);
-    // }
     return (
         <aside className="w-full">
             <div className="flex justify-between w-full p-2">
@@ -44,7 +27,7 @@ export default function Feras(props: FerasProps) {
             <div className="bg-fundo overflow-y-auto h-[500px]">
                 <ul className='flex flex-col gap-2'>
                     {props.feras.map(fera => (
-                        <li key={fera.user_id}>
+                        <li key={fera.fera}>
                             <button 
                                 onClick={() => props.setPreview(fera)} 
                                 className="flex justify-between w-full text-white h-15 px-4 pt-2 hover:bg-hover-cinzinha"
@@ -59,9 +42,9 @@ export default function Feras(props: FerasProps) {
                                     />
                                     {fera.fera} 
                                 </div>
-                                <div className="text-cinzinha count align-middle">
+                                <div className="text-cinzinha count">
                                     {fera.is_live &&
-                                        <div> <span className="text-red-600">● </span> {fera.viewer_count}</div>}
+                                        <div className='flex gap-1'> <span className="text-red-600">● </span> <span> {fera.viewer_count} </span> </div>}
                                 </div>
                             </button>
                         </li>
@@ -70,5 +53,4 @@ export default function Feras(props: FerasProps) {
             </div>
         </aside>
     )
-
 }

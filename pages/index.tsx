@@ -9,15 +9,23 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { FeraDto } from '../dtos/FerasDto'
 import Preview from '../components/Team/Preview'
+import { streamerSort } from '../utils/streamer-sort'
+
+// TODO
+// x ordenar
+// - Fera component
+// x css do preview
+// x scrollbar
+// - preview nao aparece de primeira
 
 const Home: NextPage = () => {
   const [feras, setFeras] = useState<FeraDto[]>([]);
   const [preview, setPreview ] = useState<FeraDto>({
-    fera: 'Marcellus_V',
+    fera: 'marcellus_v',
     game_name: '',
     is_live: false,
     language: '',	
-    profile_image_url: '',	
+    profile_image_url: 'https://static-cdn.jtvnw.net/jtv_user_pictures/6356c984-9dd2-42db-bc16-c34ed4244500-profile_image-300x300.png',	
     started_at: '',	
     thumbnail_url: '',	
     title: '',
@@ -27,33 +35,27 @@ const Home: NextPage = () => {
 
   async function getFeras(){
     const response = await axios.get("https://api.feras.club/team/live")
-    setFeras(response.data)
-    console.log(feras)
+    const ferasTratadas = streamerSort(response.data)
+    setFeras(ferasTratadas)
   }
 
-
-  
-  // const { fera, setFera } = useFera();
-  // function getFeraOnline(streamers: any) {
-  //   setFeras(streamers)
-  //   // setFera(props.streamers[0])
-  // }
-
   useEffect(() => {
-    getFeras()
-    setPreview(feras[0])
-    // getFeraOnline(streamers)
+    getFeras().then(() => {
+      setPreview(feras[0])
+      console.log('p',preview, 'f', feras[0])
+    })
   }, [])
 
-  useEffect(() => {
-    console.log(preview)
-  }, [preview])
+  // useEffect(() => {
+  //   // setPreview(feras[0])
+  //   console.log(preview)
+  // }, [preview])
 
   return (
     <div>
       <Header />
-      <div className='flex w-[940px] h-[720px] mt-20 mx-auto'>
-        <div className="w-96 p-4">
+      <div className='flex w-[940px] mt-20 mx-auto bg-cinzasso p-4 gap-4'>
+        <div className="w-96 pt-2">
           <Feras feras={feras} setPreview={setPreview} /> 
         </div>
         <div className='w-full'>
@@ -72,13 +74,6 @@ export default Home
 //   streamers.forEach((s: any) => {
 //     s.preview = true
 //   })
-//   streamers.sort((a: any, b: any) => {
-//     if (a.viewer_count > b.viewer_count)
-//       return -1;
-//     if (a.viewer_count < b.viewer_count)
-//       return 1
-//     return 0
-//   });
 
 //   return {
 //     props: {

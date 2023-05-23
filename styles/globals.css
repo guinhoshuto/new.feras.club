@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --sb-track-color: rgba(0,0,0,0);
+  --sb-thumb-color: #65656580;
+  --sb-size: 5px;
+}
+
 html,
 body {
   padding: 0;
@@ -9,7 +15,24 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+*{
+  scrollbar-color: var(--sb-thumb-color) 
+                   var(--sb-track-color);
+}
 
+*::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 10px;
+}
 a {
   color: inherit;
   text-decoration: none;

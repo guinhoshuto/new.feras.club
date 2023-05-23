@@ -9,7 +9,7 @@ interface PreviewProps{
 export default function Preview(props: PreviewProps){
     if(props.preview){
         return(
-            <div className="h-full">
+            <div>
                 {/* {console.log(feras)} */}
                 <div className="bg-fundo preview">
                     <div className="flex p-4">
@@ -45,7 +45,7 @@ export default function Preview(props: PreviewProps){
                     <iframe
                         title="preview"
                         src={`https://player.twitch.tv/?channel=${props.preview.fera}&parent=localhost&parent=feras.club`}
-                        height="100%"
+                        height="350"
                         width="100%"
                         allowFullScreen>
                     </iframe>
