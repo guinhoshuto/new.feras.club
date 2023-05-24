@@ -7,8 +7,8 @@ interface PreviewProps{
 }
 
 export default function Preview(props: PreviewProps){
-    if(props.preview){
-        return(
+    return(
+        props.preview && (
             <div>
                 {/* {console.log(feras)} */}
                 <div className="bg-fundo preview">
@@ -86,10 +86,8 @@ export default function Preview(props: PreviewProps){
                 </div>
 
             </div>
-        )
 
-    } else {
-        return (<div></div>)
-    }
+        )
+    )
 
 }

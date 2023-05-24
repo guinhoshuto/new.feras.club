@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Header from '../components/Team/Header'
 import Feras from '../components/Team/Feras'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import axios from 'axios'
 import { useFera } from './providers/FeraPreview'
 import Head from 'next/head'
@@ -30,7 +30,7 @@ const Home: NextPage = () => {
     thumbnail_url: '',	
     title: '',
     user_id: '',	
-    user_name: '',	
+    user_name: 'Marcellus_V',	
   })
 
   async function getFeras(){
@@ -40,18 +40,18 @@ const Home: NextPage = () => {
   }
 
   useEffect(() => {
-    getFeras().then(() => {
-      setPreview(feras[0])
-      console.log('p',preview, 'f', feras[0])
-    })
+    getFeras()
+    // if(preview === undefined) setPreview(feras[0])
   }, [])
 
+  if(!preview) setPreview(feras[0])
   // useEffect(() => {
   //   // setPreview(feras[0])
   //   console.log(preview)
   // }, [preview])
 
   return (
+
     <div>
       <Header />
       <div className='flex w-[940px] mt-20 mx-auto bg-cinzasso p-4 gap-4'>
@@ -59,7 +59,7 @@ const Home: NextPage = () => {
           <Feras feras={feras} setPreview={setPreview} /> 
         </div>
         <div className='w-full'>
-          <Preview preview={preview}/>
+          {preview && <Preview preview={preview}/> }
         </div>
       </div>
     </div>

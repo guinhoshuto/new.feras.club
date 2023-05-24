@@ -10,7 +10,8 @@ interface FerasProps {
 
 export default function Feras(props: FerasProps) {
     const online = props.feras.filter(fera => fera.is_live)
-    console.log('feras', props.feras )
+    // console.log('feras', props.feras )
+    if(online.length > 0) props.setPreview(props.feras[0])
 
     return (
         <aside className="w-full">
