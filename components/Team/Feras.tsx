@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react'
-import { useFera } from '../../pages/providers/FeraPreview'
+import { useFera } from '../../providers/FeraPreview'
 import { FeraDto } from '../../dtos/FerasDto'
 
 interface FerasProps {
