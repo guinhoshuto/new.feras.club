@@ -3,16 +3,18 @@ import Header from '../components/Team/Header'
 import Feras from '../components/Team/Feras'
 import { useCallback, useEffect, useState } from 'react'
 import axios from 'axios'
-import { useFera } from './providers/FeraPreview'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+// import { useFera } from './providers/FeraPreview'
+// import Head from 'next/head'
+// import Image from 'next/image'
+// import styles from '../styles/Home.module.css'
 import { FeraDto } from '../dtos/FerasDto'
 import Preview from '../components/Team/Preview'
 import { streamerSort } from '../utils/streamer-sort'
+import dotenv from 'dotenv'
+dotenv.config()
 
 // TODO
-// x ordenar
+// x ordenanr
 // - Fera component
 // x css do preview
 // x scrollbar
