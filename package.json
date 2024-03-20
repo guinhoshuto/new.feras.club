@@ -13,6 +13,7 @@
     "@phosphor-icons/react": "^2.0.9",
     "autoprefixer": "^10.4.8",
     "axios": "^0.27.2",
+    "dotenv": "^16.4.5",
     "next": "12.2.5",
     "postcss": "^8.4.16",
     "react": "18.2.0",

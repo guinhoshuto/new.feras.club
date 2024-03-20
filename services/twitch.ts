@@ -1,5 +1,7 @@
+import dotenv from 'dotenv'
 import axios from 'axios';
 import feras from '../utils/feras'
+dotenv.config()
 
 export const url_users = 'https://api.twitch.tv/helix/users?login=';
 export const stream_url = 'https://api.twitch.tv/helix/streams?user_login=';
