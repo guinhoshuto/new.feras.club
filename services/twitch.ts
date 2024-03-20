@@ -18,6 +18,7 @@ async function headers(): Promise<any> {
   }
 
 async function auth(): Promise<string> {
+    console.log(process.env.TWITCH_CLIENT_ID)
     const token = await axios.post('https://id.twitch.tv/oauth2/token', {
         client_id: process.env.TWITCH_CLIENT_ID,
         client_secret: process.env.TWITCH_SECRET,
