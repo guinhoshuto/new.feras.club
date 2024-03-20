@@ -2,7 +2,10 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { getTeam } from '../../services/twitch'
 
 type Data = {
-  name: string
+  fera: string,
+  profile_image_url: string,
+  is_live: boolean,
+  title: string,
 }
 
 export default async function handler(
